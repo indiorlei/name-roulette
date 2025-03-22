@@ -1,25 +1,14 @@
-'use client';
-
-import { EmptyState } from '@/components/EmptyState';
-import { Footer } from '@/components/Footer';
-import { Header } from '@/components/Header';
-import { WinnerList } from '@/components/WinnerList';
-import { useRaffle } from '@/hooks/useRaffle';
-
 export default function Home() {
-  const { winners } = useRaffle();
-
-  if (!winners.length) {
-    return <EmptyState />;
-  }
-
   return (
-    <div>
-      <Header />
-      <main>
-        <WinnerList winners={winners} />
+    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
+      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
+        <div className="flex gap-4 items-center flex-col sm:flex-row">
+          Name Roulette
+        </div>
       </main>
-      <Footer />
+      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
+        footer
+      </footer>
     </div>
   );
 }

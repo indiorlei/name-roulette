@@ -16,10 +16,13 @@ const NameInput = ({ value, onChange, error, onSubmit }: InputProps) => (
           className={`flex-1 bg-gray-800/50 backdrop-blur-sm border ${
             error ? "border-red-500" : "border-gray-700/30"
           } rounded-lg px-4 py-2 text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-500`}
+          aria-invalid={error ? "true" : "false"}
+          aria-label="Digite um nome"
         />
         <button
           type="submit"
           className="bg-amber-500 hover:bg-amber-400 text-gray-900 px-4 py-2 rounded-lg transition-colors duration-200"
+          aria-label="Adicionar nome"
         >
           Adicionar
         </button>
@@ -31,10 +34,10 @@ const NameInput = ({ value, onChange, error, onSubmit }: InputProps) => (
 
 const NameItem = ({ name, onRemove }: NameItemProps) => (
   <div className="group bg-gray-800/50 backdrop-blur-sm border border-gray-700/30 rounded-lg p-3 text-gray-200 hover:bg-gray-800/70 transition-colors duration-200 flex items-center justify-between">
-    <span className="flex-1">{name}</span>
+    <span className="flex-1 capitalize">{name}</span>
     <button
       onClick={onRemove}
-      className="opacity-0 group-hover:opacity-100 text-red-400 transition-all duration-200 p-1.5 rounded-full cursor-pointer"
+      className="text-red-400 transition-all duration-200 p-1.5 rounded-full cursor-pointer sm:opacity-0 sm:group-hover:opacity-100"
       aria-label={`Remover ${name}`}
     >
       <svg
@@ -55,7 +58,9 @@ const NameItem = ({ name, onRemove }: NameItemProps) => (
 );
 
 const EmptyState = () => (
-  <div className="text-gray-400 text-sm">Nenhum nome adicionado ainda</div>
+  <div className="text-gray-400 text-sm" aria-live="polite">
+    Nenhum nome adicionado ainda
+  </div>
 );
 
 export const ListNames = () => {
@@ -91,7 +96,7 @@ export const ListNames = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl">
+    <div className="w-full">
       <NameInput
         value={newName}
         onChange={handleInputChange}
@@ -108,6 +113,7 @@ export const ListNames = () => {
             <button
               onClick={clearNames}
               className="text-red-400 hover:text-red-300 text-sm transition-colors duration-200"
+              aria-label="Limpar todos os nomes"
             >
               Limpar todos
             </button>

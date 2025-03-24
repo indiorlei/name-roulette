@@ -1,15 +1,18 @@
 import { Footer } from "@/components/Footer";
 import { ListNames } from "@/components/ListNames";
+import { NameSorter } from "@/components/NameSorter";
 
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <ListNames />
-        </div>
+    <div className="gap-4 flex flex-col min-h-screen p-4 pb-10 sm:p-10 font-[family-name:var(--font-geist-sans)] items-center">
+      <main
+        className="flex flex-col gap-16 items-center w-full max-w-4xl flex-grow"
+        aria-label="Seção principal"
+      >
+        <NameSorter />
+        <ListNames />
       </main>
-      <Footer />
+      <Footer aria-label="Rodapé" />
     </div>
   );
 }

@@ -63,7 +63,7 @@ export const useNames = (): UseNamesReturn => {
   }, [searchParams, router]);
 
   useEffect(() => {
-    saveNamesToStorage(names);
+    // saveNamesToStorage(names);
     updateUrlWithNames(router, searchParams, names);
   }, [names, router, searchParams]);
 
@@ -71,6 +71,7 @@ export const useNames = (): UseNamesReturn => {
     const trimmedName = name.trim();
     if (trimmedName && !names.includes(trimmedName)) {
       setNames((prev) => [...prev, trimmedName]);
+      updateUrlWithNames(router, searchParams, names);
     }
   };
 
@@ -80,6 +81,8 @@ export const useNames = (): UseNamesReturn => {
 
   const clearNames = (): void => {
     setNames([]);
+    saveNamesToStorage([]);
+    updateUrlWithNames(router, searchParams, []);
   };
 
   return {

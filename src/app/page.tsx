@@ -1,6 +1,7 @@
 import { Footer } from "@/components/Footer";
 import { ListNames } from "@/components/ListNames";
 import { NameSorter } from "@/components/NameSorter";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
@@ -9,8 +10,10 @@ export default function Home() {
         className="flex flex-col gap-16 items-center w-full max-w-4xl flex-grow"
         aria-label="Seção principal"
       >
-        <NameSorter />
-        <ListNames />
+        <Suspense fallback={<div>Loading...</div>}>
+          <NameSorter />
+          <ListNames />
+        </Suspense>
       </main>
       <Footer aria-label="Rodapé" />
     </div>

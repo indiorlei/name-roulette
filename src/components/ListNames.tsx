@@ -76,13 +76,17 @@ export const ListNames = () => {
 
     if (!trimmedName) {
       setError("O nome não pode estar vazio");
+
       return;
     }
 
-    if (
-      names.some((name) => name.toLowerCase() === trimmedName.toLowerCase())
-    ) {
+    const isDuplicateName = names.some(
+      (name) => name.toLowerCase() === trimmedName.toLowerCase()
+    );
+
+    if (isDuplicateName) {
       setError("Este nome já está na lista");
+
       return;
     }
 
@@ -90,10 +94,44 @@ export const ListNames = () => {
     setNewName("");
   };
 
+  // corrigir
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewName(e.target.value);
     setError(null);
   };
+
+  function renderNames() {
+    if (names.length <= 0) {
+      return <EmptyState />;
+    }
+
+    return (
+      <>
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-semibold text-gray-200">
+            Nomes ({names.length})
+          </h2>
+          <button
+            onClick={clearNames}
+            className="text-red-400 hover:text-red-300 text-sm transition-colors duration-200 hover:cursor-pointer"
+            aria-label="Limpar todos os nomes"
+          >
+            Limpar todos
+          </button>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+          {names.map((name, index) => (
+            <NameItem
+              key={index}
+              name={name}
+              onRemove={() => removeName(name)}
+            />
+          ))}
+        </div>
+      </>
+    );
+  }
 
   return (
     <div className="w-full">
@@ -103,35 +141,7 @@ export const ListNames = () => {
         error={error}
         onSubmit={handleSubmit}
       />
-
-      {names.length > 0 ? (
-        <>
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-semibold text-gray-200">
-              Nomes ({names.length})
-            </h2>
-            <button
-              onClick={clearNames}
-              className="text-red-400 hover:text-red-300 text-sm transition-colors duration-200"
-              aria-label="Limpar todos os nomes"
-            >
-              Limpar todos
-            </button>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
-            {names.map((name, index) => (
-              <NameItem
-                key={index}
-                name={name}
-                onRemove={() => removeName(name)}
-              />
-            ))}
-          </div>
-        </>
-      ) : (
-        <EmptyState />
-      )}
+      {renderNames()}
     </div>
   );
 };

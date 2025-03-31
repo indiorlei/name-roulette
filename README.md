@@ -1,36 +1,83 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+```markdown
+# Roleta de Nomes
 
-## Getting Started
+A **Roleta de Nomes** é uma aplicação web simples que realiza sorteios diários de nomes. É possível adicionar nomes ou passar valores diretamente através dos parâmetros de consulta (query params) na URL. Ideal para sorteios rápidos e divertidos entre grupos de pessoas, amigos ou colegas de trabalho.
 
-First, run the development server:
+## URL do Projeto
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Acesse a roleta de nomes clicando no seguinte link:  
+[https://daily-name.vercel.app/](https://daily-name.vercel.app/)
+
+## Funcionalidades
+
+- **Sorteio Diário**: A roleta realiza um sorteio de nome todo dia.
+- **Adicionar Nomes**: É possível passar uma lista personalizada de nomes utilizando o parâmetro `names` na URL. A roleta fará o sorteio com base nesses nomes.
+- **Parâmetro Query**: Você pode passar os nomes diretamente pela URL. Exemplo:  
+  `https://daily-name.vercel.app/?names=Alice,Bob,Charlie`
+
+## Como Usar
+
+1. Abra o [link do projeto](https://daily-name.vercel.app/) no navegador.
+2. A roleta irá automaticamente realizar o sorteio diário.
+3. Para customizar os nomes que serão sorteados, adicione o parâmetro `names` na URL. Exemplo:  
+   `https://daily-name.vercel.app/?names=Maria,João,Pedro`
+4. O nome sorteado será exibido após o sorteio.
+
+## Instalação e Execução Local
+
+Se você quiser rodar o projeto localmente, siga os passos abaixo:
+
+### Pré-requisitos
+
+- **Node.js** (recomenda-se a versão LTS)
+- **NPM** ou **Yarn**
+
+### Passos
+
+1. Clone o repositório:
+
+   ```bash
+   git clone https://github.com/seu-usuario/roleta-de-nomes.git
+   ```
+
+2. Navegue até a pasta do projeto:
+
+   ```bash
+   cd roleta-de-nomes
+   ```
+
+3. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+4. Execute o projeto localmente:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Acesse a aplicação no seu navegador em `http://localhost:3000`.
+
+## Tecnologias Utilizadas
+
+- **Next.js**: Framework React utilizado para o desenvolvimento da aplicação.
+- **React**: Biblioteca JavaScript para construção da interface de usuário.
+- **Vercel**: Plataforma de deploy utilizada para hospedar a aplicação.
+
+## Contribuições
+
+Contribuições são bem-vindas! Se você tiver sugestões de melhorias ou quiser corrigir algum bug, fique à vontade para abrir uma *issue* ou enviar um *pull request*.
+
+1. Faça o *fork* deste repositório.
+2. Crie uma nova branch para sua modificação (`git checkout -b minha-modificacao`).
+3. Faça as modificações necessárias e adicione os arquivos alterados (`git add .`).
+4. Realize o commit das suas alterações (`git commit -m 'Adiciona uma nova funcionalidade'`).
+5. Envie a branch para o repositório remoto (`git push origin minha-modificacao`).
+6. Abra um pull request.
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 ```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.

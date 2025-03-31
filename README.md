@@ -1,4 +1,3 @@
-```markdown
 # Roleta de Nomes
 
 A **Roleta de Nomes** é uma aplicação web simples que realiza sorteios diários de nomes. É possível adicionar nomes ou passar valores diretamente através dos parâmetros de consulta (query params) na URL. Ideal para sorteios rápidos e divertidos entre grupos de pessoas, amigos ou colegas de trabalho.
@@ -37,7 +36,7 @@ Se você quiser rodar o projeto localmente, siga os passos abaixo:
 1. Clone o repositório:
 
    ```bash
-   git clone https://github.com/seu-usuario/roleta-de-nomes.git
+   git clone https://github.com/indiorlei/name-roulette roleta-de-nomes
    ```
 
 2. Navegue até a pasta do projeto:
@@ -68,9 +67,9 @@ Se você quiser rodar o projeto localmente, siga os passos abaixo:
 
 ## Contribuições
 
-Contribuições são bem-vindas! Se você tiver sugestões de melhorias ou quiser corrigir algum bug, fique à vontade para abrir uma *issue* ou enviar um *pull request*.
+Contribuições são bem-vindas! Se você tiver sugestões de melhorias ou quiser corrigir algum bug, fique à vontade para abrir uma _issue_ ou enviar um _pull request_.
 
-1. Faça o *fork* deste repositório.
+1. Faça o _fork_ deste repositório.
 2. Crie uma nova branch para sua modificação (`git checkout -b minha-modificacao`).
 3. Faça as modificações necessárias e adicione os arquivos alterados (`git add .`).
 4. Realize o commit das suas alterações (`git commit -m 'Adiciona uma nova funcionalidade'`).
@@ -80,4 +79,3 @@ Contribuições são bem-vindas! Se você tiver sugestões de melhorias ou quise
 ## Licença
 
 Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-```
